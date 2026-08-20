@@ -32,30 +32,33 @@ git config user.name "%GIT_USER%"
 
 :: Provera inicijalizacije
 if not exist ".git" (
-    echo [*] Povezivanje sa tvojim postojecim repo-om...
+    echo [*] Inicijalizacija novog Git repo-a...
     git init
     git remote add origin %REPO_URL%
-    git fetch origin
-    git checkout -B main origin/main
 ) else (
     echo [*] Osvezavam link ka repozitorijumu...
     git remote set-url origin %REPO_URL%
 )
 
-:: Sinhronizacija pre slanja
-echo [*] Preuzimanje najnovijeg stanja sa GitHub-a...
-git pull origin main --rebase
+:: Preimenovanje trenutne grane (master) u main radi mečovanja sa GitHub-om
+git branch -M main
 
-:: Dodavanje i slanje svih fajlova
+:: Dodavanje svih izmena u tracking
 echo [*] Dodavanje svih izmena...
 git add .
 
+:: Kreiranje commit-a sa trenutnim izmenama
 echo [*] Kreiranje commit-a...
 SET "TIMESTAMP=%DATE% %TIME%"
 git commit -m "Update Radio App - %TIMESTAMP%"
 
+:: Sinhronizacija sa GitHub-om (Pull pre Push-a)
+echo [*] Preuzimanje najnovijeg stanja sa GitHub-a...
+git pull origin main --rebase --autostash
+
+:: Slanje izmena na GitHub
 echo [*] Slanje na GitHub (Push)...
-git push origin main
+git push -u origin main
 
 echo.
 if %errorlevel% equ 0 (
