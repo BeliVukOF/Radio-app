@@ -1,79 +1,70 @@
 @echo off
-TITLE Git Auto Sync - Radio App
-COLOR 0A
+TITLE Git Repository Updater - Radio App
+COLOR 0B
 
-:: Podešavanje promenljivih
+:: Podešavanje parametara
 SET "PROJECT_DIR=D:\Android Studio APPS\Radio APP"
 SET "GIT_PATH=C:\Program Files\Git\cmd"
 SET "REPO_URL=https://github.com/BeliVukOF/Radio-app.git"
 SET "GIT_EMAIL=belivuk23@gmail.com"
 SET "GIT_USER=BeliVukOF"
 
-:: Dodavanje Git-a u sistemski PATH za ovu sesiju
+:: Dodavanje Git-a u PATH za tekući prozor
 SET "PATH=%GIT_PATH%;%PATH%"
 
 echo ===================================================
-echo   Automatski Git Sync za Radio App (BeliVukOF)
+echo   Git Repo Update Script: Radio App
+echo   Target: %REPO_URL%
 echo ===================================================
 echo.
 
 :: Ulazak u direktorijum projekta
 cd /d "%PROJECT_DIR%"
 if %errorlevel% neq 0 (
-    echo [GRESKA] Putanja %PROJECT_DIR% ne postoji!
+    echo [GRESKA] Putanja %PROJECT_DIR% ne postoji! Proveri folder.
     pause
     exit /b
 )
 
-:: Podešavanje Git korisnika za ovaj projekat
+:: Podešavanje autorstva
 git config user.email "%GIT_EMAIL%"
 git config user.name "%GIT_USER%"
 
-:: Provera da li je repo već inicijalizovan
+:: Provera inicijalizacije
 if not exist ".git" (
-    echo [*] Inicijalizacija novog Git repozitorijuma...
+    echo [*] Povezivanje sa tvojim postojecim repo-om...
     git init
     git remote add origin %REPO_URL%
-    git branch -M main
+    git fetch origin
+    git checkout -B main origin/main
 ) else (
-    echo [*] Git je vec inicijalizovan. Osvezavam remote URL...
+    echo [*] Osvezavam link ka repozitorijumu...
     git remote set-url origin %REPO_URL%
 )
 
-:: OPTIMIZACIJA: Čišćenje build i cache fajlova pre uploada
-echo [*] Optimizacija projekta (ciscenje privremenih build fajlova)...
-if exist "gradlew.bat" (
-    call gradlew.bat clean
-) else (
-    if exist "build" rd /s /q "build"
-    if exist "app\build" rd /s /q "app\build"
-    if exist ".gradle" rd /s /q ".gradle"
-)
-
-:: Preuzimanje izmena ako postoje na GitHub-u (izbegavanje konflikata)
-echo [*] Provera i preuzimanje izmena sa GitHub-a...
+:: Sinhronizacija pre slanja
+echo [*] Preuzimanje najnovijeg stanja sa GitHub-a...
 git pull origin main --rebase
 
-:: Dodavanje svih fajlova, pravljenje commit-a i push
-echo [*] Dodavanje fajlova u Git tracking...
+:: Dodavanje i slanje svih fajlova
+echo [*] Dodavanje svih izmena...
 git add .
 
 echo [*] Kreiranje commit-a...
 SET "TIMESTAMP=%DATE% %TIME%"
-git commit -m "Auto update - Radio App (%TIMESTAMP%)"
+git commit -m "Update Radio App - %TIMESTAMP%"
 
 echo [*] Slanje na GitHub (Push)...
-git push -u origin main
+git push origin main
 
 echo.
 if %errorlevel% equ 0 (
     echo ===================================================
-    echo   USPESNO! Tvoj projekat je sinhronizovan na GitHub.
+    echo   USPESNO! Tvoj repo na GitHub-u je osvezen!
     echo ===================================================
 ) else (
     echo ===================================================
-    echo   [GRESKA] Doslo je do greske prilikom push-ovanja.
-    echo   Sacekaj proveru GitHub tokena ili kredencijala.
+    echo   [GRESKA] Proveri da li si prijavljen na GitHub.
     echo ===================================================
 )
 
