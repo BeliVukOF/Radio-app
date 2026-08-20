@@ -26,6 +26,7 @@
         <domain includeSubdomains="true">dreamsiteradiocp.com</domain>
         <domain includeSubdomains="true">ddns.net</domain>
         <domain includeSubdomains="true">176.9.117.123</domain>
+        <domain includeSubdomains="true">githubusercontent.com</domain>
     </domain-config>
 
     <base-config cleartextTrafficPermitted="false">

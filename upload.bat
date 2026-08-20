@@ -36,12 +36,12 @@ git reset >nul 2>&1
 
 :: Dodavanje ISKLJUCIVO odabranih stavki
 echo [*] Dodavanje iskljucivo odabranih fajlova...
-git add -- .github app gradle .gitignore build.gradle.kts gradle.properties gradlew gradlew.bat LICENSE README.md settings.gradle.kts stations.json upload.bat 2>nul
+git add -- .github app gradle stations .gitignore build.gradle.kts gradle.properties gradlew gradlew.bat LICENSE README.md settings.gradle.kts upload.bat 2>nul
 
 :: Upisivanje commit-a
 echo [*] Pravljenje commit-a...
 SET "TIMESTAMP=%DATE% %TIME%"
-git commit -m "Update Radio App core files - %TIMESTAMP%"
+git commit -m "Update Radio App core files and stations folder - %TIMESTAMP%"
 
 :: Sinhronizacija sa GitHub-om pre slanja
 echo [*] Preuzimanje najnovijih izmena sa GitHub-a...
@@ -53,10 +53,17 @@ git push -u origin main
 
 echo.
 echo ===================================================
+echo   LOG PROMENA (Pregled poslatog):
+echo ===================================================
+git status --short
+
+echo.
+echo ===================================================
 echo   Proces je zavrsen!
 echo ===================================================
 echo.
 
 :PAUSE_SCREEN
 echo Prozor ostaje otvoren radi provere. Pritisni ENTER za izlaz...
+
 exit
