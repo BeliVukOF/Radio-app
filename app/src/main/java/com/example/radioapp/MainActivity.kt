@@ -25,11 +25,16 @@ import com.google.android.material.navigation.NavigationView
 import com.google.common.util.concurrent.ListenableFuture
 import com.google.common.util.concurrent.MoreExecutors
 
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
+import com.example.radioapp.data.StationManager
+
 class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceChangeListener {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
     private lateinit var regionPreferences: RegionPreferences
+    private lateinit var stationManager: StationManager
 
     private var controllerFuture: ListenableFuture<MediaController>? = null
     private val controller: MediaController?
@@ -44,6 +49,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         setSupportActionBar(binding.appBarMain.toolbar)
         
         regionPreferences = RegionPreferences(this)
+        stationManager = StationManager(this)
 
         val navHostFragment =
             (supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_main) as NavHostFragment?)!!
@@ -85,6 +91,12 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
                 it.stop()
                 it.clearMediaItems()
             }
+        }
+
+        // Fetch stations on startup to ensure latest content
+        lifecycleScope.launch {
+            stationManager.getStations()
+            updateNavMenu()
         }
     }
 

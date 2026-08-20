@@ -19,11 +19,16 @@ import com.example.radioapp.service.PlaybackService
 import com.google.common.util.concurrent.ListenableFuture
 import com.google.common.util.concurrent.MoreExecutors
 
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
+import com.example.radioapp.data.StationManager
+
 class RadioFragment : Fragment() {
 
     private var _binding: FragmentRadioBinding? = null
     private val binding get() = _binding!!
     private lateinit var regionPreferences: RegionPreferences
+    private lateinit var stationManager: StationManager
 
     private var controllerFuture: ListenableFuture<MediaController>? = null
     private val controller: MediaController?
@@ -35,6 +40,7 @@ class RadioFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentRadioBinding.inflate(inflater, container, false)
         regionPreferences = RegionPreferences(requireContext())
+        stationManager = StationManager(requireContext())
         return binding.root
     }
 
@@ -44,17 +50,21 @@ class RadioFragment : Fragment() {
         currentRegion = arguments?.getString("region")
         val isFavorites = arguments?.getBoolean("isFavorites") ?: false
         
-        baseStations = StationRepository.allStations.filter { 
-            regionPreferences.isRegionEnabled(it.region) 
-        }
+        lifecycleScope.launch {
+            val allStations = stationManager.getStations().ifEmpty { StationRepository.allStations }
+            
+            baseStations = allStations.filter { 
+                regionPreferences.isRegionEnabled(it.region) 
+            }
 
-        if (isFavorites) {
-            baseStations = baseStations.filter { regionPreferences.isStationFavorite(it.streamUrl) }
-        } else if (currentRegion != null) {
-            baseStations = baseStations.filter { it.region == currentRegion }
-        }
+            if (isFavorites) {
+                baseStations = baseStations.filter { regionPreferences.isStationFavorite(it.streamUrl) }
+            } else if (currentRegion != null) {
+                baseStations = baseStations.filter { it.region == currentRegion }
+            }
 
-        updateList(baseStations)
+            updateList(baseStations)
+        }
 
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean = false

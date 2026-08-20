@@ -15,11 +15,16 @@ import com.example.radioapp.databinding.FragmentSettingsBinding
 import com.example.radioapp.repository.StationRepository
 import com.google.android.material.switchmaterial.SwitchMaterial
 
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
+import com.example.radioapp.data.StationManager
+
 class SettingsFragment : Fragment() {
 
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!
     private lateinit var regionPreferences: RegionPreferences
+    private lateinit var stationManager: StationManager
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,12 +33,29 @@ class SettingsFragment : Fragment() {
     ): View {
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
         regionPreferences = RegionPreferences(requireContext())
+        stationManager = StationManager(requireContext())
         
         setupRegionSwitches()
         setupPowerSavingSwitch()
         setupLanguageButton()
+        setupRefreshButton()
         
         return binding.root
+    }
+
+    private fun setupRefreshButton() {
+        binding.buttonRefreshStations.setOnClickListener {
+            binding.buttonRefreshStations.isEnabled = false
+            lifecycleScope.launch {
+                val stations = stationManager.getStations()
+                binding.buttonRefreshStations.isEnabled = true
+                if (stations.isNotEmpty()) {
+                    Toast.makeText(context, "Station list updated! Total: ${stations.size}", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(context, "Failed to update stations. Please try again later.", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
 
     private fun setupLanguageButton() {

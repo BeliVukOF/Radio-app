@@ -41,6 +41,8 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.fragment)
     implementation(libs.androidx.security.crypto)
+    implementation(libs.gson)
+    implementation(libs.kotlinx.coroutines.android)
     implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)

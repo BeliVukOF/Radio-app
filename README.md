@@ -12,6 +12,15 @@ A simple and elegant Android application for streaming radio stations from acros
 - **Power Saving Mode:** Optimize battery life by reducing animations and optimizing network buffering.
 - **Adaptive UI:** Material 3 design with a global wooden map background and smooth transitions.
 
+## Dynamic Updates
+
+This app supports **Over-the-Air (OTA) content updates**. You can update the list of radio stations without pushing a new version to the Play Store.
+
+### How to update stations:
+1.  Edit the [stations.json](stations.json) file in this repository.
+2.  Commit and push the changes to the `main` branch.
+3.  The app will automatically fetch the new list next time it's launched (or via the "Check for new stations" button in Settings).
+
 ## Supported Regions
 
 The app currently features over 50 hand-picked radio stations from:

@@ -77,5 +77,33 @@
             android:text="@string/label_select_language"
             app:icon="@android:drawable/ic_menu_manage" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="16dp"
+            android:background="?android:attr/listDivider" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Content"
+            android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonRefreshStations"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Check for new stations"
+            app:icon="@android:drawable/stat_notify_sync" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Updates the list of radio stations from the server."
+            android:textAppearance="?attr/textAppearanceBodySmall"
+            android:textColor="?attr/colorOnSurfaceVariant" />
+
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
