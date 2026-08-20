@@ -92,12 +92,6 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
                 it.clearMediaItems()
             }
         }
-
-        // Fetch stations on startup to ensure latest content
-        lifecycleScope.launch {
-            stationManager.getStations()
-            updateNavMenu()
-        }
     }
 
     private fun setupMediaController() {
@@ -155,7 +149,12 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
     override fun onStart() {
         super.onStart()
         regionPreferences.registerListener(this)
-        updateNavMenu()
+        
+        // Automatska provera stanica svaki put kada se aplikacija otvori
+        lifecycleScope.launch {
+            stationManager.getStations()
+            updateNavMenu()
+        }
     }
 
     override fun onStop() {
