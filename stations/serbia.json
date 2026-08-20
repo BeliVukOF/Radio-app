@@ -16,5 +16,6 @@
   { "name": "Cool Radio", "streamUrl": "https://live.coolradio.rs/cool128", "region": "Serbia" },
   { "name": "Karolina", "streamUrl": "https://streaming.karolina.rs/karolina.mp3", "region": "Serbia" },
   { "name": "Radio Morava", "streamUrl": "https://e3.radiomorava.rs/radio/8000/radiomorava128.mp3", "region": "Serbia" },
-  { "name": "Naxi FM", "streamUrl": "https://naxi128.streaming.rs:9152/;*.mp3", "region": "Serbia" }
+  { "name": "Naxi FM", "streamUrl": "https://naxi128.streaming.rs:9152/;*.mp3", "region": "Serbia" },
+  { "name": "Rock Radio", "streamUrl": "https://streaming.tdiradio.com/rockradio.mp3", "region": "Serbia" }
 ]
