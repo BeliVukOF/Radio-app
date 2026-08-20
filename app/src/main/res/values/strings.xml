@@ -50,4 +50,9 @@
     <string name="label_montenegro">Montenegro</string>
     <string name="label_serbia">Serbia</string>
     <string name="label_all_regions">All Regions</string>
+    <string name="title_content">Content</string>
+    <string name="label_refresh_stations">Check for new stations</string>
+    <string name="desc_refresh_stations">Updates the list of radio stations from the server.</string>
+    <string name="msg_stations_updated">Station list updated! Total: %1$d</string>
+    <string name="msg_stations_update_failed">Failed to update stations. Please try again later.</string>
 </resources>

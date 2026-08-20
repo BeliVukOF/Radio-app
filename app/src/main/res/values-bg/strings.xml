@@ -51,4 +51,9 @@
     <string name="label_montenegro">Черна гора</string>
     <string name="label_serbia">Сърбия</string>
     <string name="label_all_regions">Всички региони</string>
+    <string name="title_content">Съдържание</string>
+    <string name="label_refresh_stations">Проверка за нови станции</string>
+    <string name="desc_refresh_stations">Актуализира списъка с радиостанции от сървъра.</string>
+    <string name="msg_stations_updated">Списъкът със станции е актуализиран! Общо: %1$d</string>
+    <string name="msg_stations_update_failed">Неуспешна актуализация на станциите. Моля, опитайте отново по-късно.</string>
 </resources>

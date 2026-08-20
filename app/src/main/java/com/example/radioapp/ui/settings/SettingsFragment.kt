@@ -50,9 +50,9 @@ class SettingsFragment : Fragment() {
                 val stations = stationManager.getStations()
                 binding.buttonRefreshStations.isEnabled = true
                 if (stations.isNotEmpty()) {
-                    Toast.makeText(context, "Station list updated! Total: ${stations.size}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, getString(R.string.msg_stations_updated, stations.size), Toast.LENGTH_SHORT).show()
                 } else {
-                    Toast.makeText(context, "Failed to update stations. Please try again later.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, getString(R.string.msg_stations_update_failed), Toast.LENGTH_SHORT).show()
                 }
             }
         }

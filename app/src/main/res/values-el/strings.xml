@@ -51,4 +51,9 @@
     <string name="label_montenegro">Μαυροβούνιο</string>
     <string name="label_serbia">Σερβία</string>
     <string name="label_all_regions">Όλες οι περιοχές</string>
+    <string name="title_content">Περιεχόμενο</string>
+    <string name="label_refresh_stations">Έλεγχος για νέους σταθμούς</string>
+    <string name="desc_refresh_stations">Ενημερώνει τη λίστα των ραδιοφωνικών σταθμών από τον διακομιστή.</string>
+    <string name="msg_stations_updated">Η λίστα σταθμών ενημερώθηκε! Σύνολο: %1$d</string>
+    <string name="msg_stations_update_failed">Αποτυχία ενημέρωσης σταθμών. Παρακαλώ δοκιμάστε ξανά αργότερα.</string>
 </resources>

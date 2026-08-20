@@ -51,4 +51,9 @@
     <string name="label_montenegro">Mali i Zi</string>
     <string name="label_serbia">Serbi</string>
     <string name="label_all_regions">Të gjitha rajonet</string>
+    <string name="title_content">Përmbajtja</string>
+    <string name="label_refresh_stations">Kontrollo për stacione të reja</string>
+    <string name="desc_refresh_stations">Përditëson listën e stacioneve radio nga serveri.</string>
+    <string name="msg_stations_updated">Lista e stacioneve u përditësua! Gjithsej: %1$d</string>
+    <string name="msg_stations_update_failed">Dështoi përditësimi i stacioneve. Ju lutemi provoni përsëri më vonë.</string>
 </resources>

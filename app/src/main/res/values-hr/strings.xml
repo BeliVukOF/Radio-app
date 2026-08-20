@@ -51,4 +51,9 @@
     <string name="label_montenegro">Crna Gora</string>
     <string name="label_serbia">Srbija</string>
     <string name="label_all_regions">Sve regije</string>
+    <string name="title_content">Sadržaj</string>
+    <string name="label_refresh_stations">Provjeri nove stanice</string>
+    <string name="desc_refresh_stations">Ažurira popis radio stanica s poslužitelja.</string>
+    <string name="msg_stations_updated">Popis stanica ažuriran! Ukupno: %1$d</string>
+    <string name="msg_stations_update_failed">Neuspješno ažuriranje stanica. Pokušajte ponovno kasnije.</string>
 </resources>
