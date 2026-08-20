@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_region_selection"
+            android:icon="@drawable/ic_launcher_foreground"
+            android:title="Select Region" />
+        <item
+            android:id="@+id/nav_favorites"
+            android:icon="@android:drawable/btn_star_big_on"
+            android:title="@string/menu_favorites" />
+        <item
+            android:id="@+id/nav_albania"
+            android:icon="@drawable/ic_slideshow_black_24dp"
+            android:title="@string/menu_albania" />
+        <item
+            android:id="@+id/nav_bosnia"
+            android:icon="@drawable/ic_slideshow_black_24dp"
+            android:title="@string/menu_bosnia" />
+        <item
+            android:id="@+id/nav_bulgaria"
+            android:icon="@drawable/ic_slideshow_black_24dp"
+            android:title="@string/menu_bulgaria" />
+        <item
+            android:id="@+id/nav_croatia"
+            android:icon="@drawable/ic_slideshow_black_24dp"
+            android:title="@string/menu_croatia" />
+        <item
+            android:id="@+id/nav_greece"
+            android:icon="@drawable/ic_slideshow_black_24dp"
+            android:title="@string/menu_greece" />
+        <item
+            android:id="@+id/nav_macedonia"
+            android:icon="@drawable/ic_slideshow_black_24dp"
+            android:title="@string/menu_macedonia" />
+        <item
+            android:id="@+id/nav_montenegro"
+            android:icon="@drawable/ic_slideshow_black_24dp"
+            android:title="@string/menu_montenegro" />
+        <item
+            android:id="@+id/nav_serbia"
+            android:icon="@drawable/ic_slideshow_black_24dp"
+            android:title="@string/menu_serbia" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings_black_24dp"
+            android:title="@string/menu_settings" />
+    </group>
+</menu>

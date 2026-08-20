@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">Balkan Radio</string>
+    <string name="navigation_drawer_open">Отвори менюто</string>
+    <string name="navigation_drawer_close">Затвори менюто</string>
+    <string name="nav_header_title">Balkan Radio</string>
+    <string name="nav_header_subtitle">Ex-Yu Радиостанции</string>
+    <string name="action_settings">Настройки</string>
+
+    <string name="nav_header_desc">Заглавие на менюто</string>
+    <string name="menu_all_regions">Всички региони</string>
+    <string name="menu_favorites">Любими станции</string>
+    <string name="menu_albania">Албания</string>
+    <string name="menu_bosnia">БиХ</string>
+    <string name="menu_bulgaria">България</string>
+    <string name="menu_croatia">Хърватия</string>
+    <string name="menu_greece">Гърция</string>
+    <string name="menu_macedonia">Македония</string>
+    <string name="menu_montenegro">Черна гора</string>
+    <string name="menu_serbia">Сърбия</string>
+    <string name="menu_settings">Настройки</string>
+
+    <string name="now_playing_default">В момента не звучи нищо</string>
+    <string name="content_description_play">Пусни</string>
+    <string name="content_description_pause">Пауза</string>
+    <string name="content_description_stop">Спри</string>
+    <string name="content_description_back">Назад</string>
+
+    <string name="title_settings">Настройки</string>
+    <string name="title_enabled_regions">Активирани региони</string>
+    <string name="title_performance">Производителност</string>
+    <string name="label_power_saving">Режим на пестене на енергия</string>
+    <string name="desc_power_saving">Намалява анимациите и оптимизира буферирането за по-дълъг живот на батерията.</string>
+    <string name="title_language">Език</string>
+    <string name="label_select_language">Изберете език на приложението</string>
+    <string name="lang_albanian">Албански</string>
+    <string name="lang_bosnian">Босненски</string>
+    <string name="lang_bulgarian">Български</string>
+    <string name="lang_croatian">Хърватски</string>
+    <string name="lang_greek">Гръцки</string>
+    <string name="lang_macedonian">Македонски</string>
+    <string name="lang_montenegrin">Черногорски</string>
+    <string name="lang_serbian">Сръбски</string>
+    <string name="lang_english">Английски</string>
+    <string name="title_choose_region">Изберете регион</string>
+    <string name="label_albania">Албания</string>
+    <string name="label_bosnia">БиХ</string>
+    <string name="label_bulgaria">България</string>
+    <string name="label_croatia">Хърватия</string>
+    <string name="label_greece">Гърция</string>
+    <string name="label_macedonia">Македония</string>
+    <string name="label_montenegro">Черна гора</string>
+    <string name="label_serbia">Сърбия</string>
+    <string name="label_all_regions">Всички региони</string>
+</resources>
