@@ -11,32 +11,33 @@
         android:id="@+id/listContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="8dp">
+        android:paddingTop="?attr/actionBarSize"
+        android:clipToPadding="false">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewStations"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:paddingBottom="120dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/item_station" />
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/searchView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="56dp"
+            android:layout_marginEnd="8dp"
             android:background="@drawable/search_bg"
             app:iconifiedByDefault="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:queryHint="Search stations..." />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewStations"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            android:clipToPadding="false"
-            android:paddingBottom="80dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/searchView"
-            tools:listitem="@layout/item_station" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

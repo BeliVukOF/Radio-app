@@ -8,30 +8,29 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        android:paddingTop="?attr/actionBarSize"
+        android:clipToPadding="false">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="32dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="32dp"
-                android:text="@string/title_choose_region"
-                android:textAppearance="?attr/textAppearanceHeadlineMedium" />
+            android:paddingHorizontal="32dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="120dp">
 
             <Button
                 android:id="@+id/buttonFavorites"
                 style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="64dp"
                 android:layout_marginBottom="24dp"
                 android:text="@string/menu_favorites"
-                app:icon="@android:drawable/btn_star_big_on" />
+                app:icon="@drawable/ic_star_filled"
+                app:iconSize="24dp"
+                app:iconTint="?attr/colorPrimary" />
 
             <Button
                 android:id="@+id/buttonAlbania"
@@ -94,15 +93,7 @@
                 style="?attr/materialButtonOutlinedStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
                 android:text="@string/label_all_regions" />
-
-            <Button
-                android:id="@+id/buttonSettings"
-                style="@style/Widget.Material3.Button.TextButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/action_settings" />
 
         </LinearLayout>
     </ScrollView>

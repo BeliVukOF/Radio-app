@@ -2,31 +2,15 @@ package com.example.radioapp.data
 
 import android.content.Context
 import android.content.SharedPreferences
-import androidx.security.crypto.EncryptedSharedPreferences
-import androidx.security.crypto.MasterKey
-
 import androidx.core.content.edit
 
 class RegionPreferences(context: Context) {
-    private val masterKey = MasterKey.Builder(context)
-        .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
-        .build()
+    // Koristimo standardni SharedPreferences radi maksimalne kompatibilnosti sa Honor/Huawei uredjajima
+    private val prefs: SharedPreferences = context.getSharedPreferences("region_prefs_v2", Context.MODE_PRIVATE)
 
-    private val prefs: SharedPreferences = EncryptedSharedPreferences.create(
-        context,
-        "region_prefs",
-        masterKey,
-        EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-        EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
-    )
+    fun isRegionEnabled(region: String): Boolean = prefs.getBoolean(region, true)
 
-    fun isRegionEnabled(region: String): Boolean {
-        return prefs.getBoolean(region, true)
-    }
-
-    fun setRegionEnabled(region: String, enabled: Boolean) {
-        prefs.edit { putBoolean(region, enabled) }
-    }
+    fun setRegionEnabled(region: String, enabled: Boolean) = prefs.edit { putBoolean(region, enabled) }
 
     var isPowerSavingEnabled: Boolean
         get() = prefs.getBoolean("power_saving", false)
@@ -42,11 +26,7 @@ class RegionPreferences(context: Context) {
 
     fun toggleFavorite(streamUrl: String) {
         val favorites = prefs.getStringSet("favorites", emptySet())?.toMutableSet() ?: mutableSetOf()
-        if (favorites.contains(streamUrl)) {
-            favorites.remove(streamUrl)
-        } else {
-            favorites.add(streamUrl)
-        }
+        if (favorites.contains(streamUrl)) favorites.remove(streamUrl) else favorites.add(streamUrl)
         prefs.edit { putStringSet("favorites", favorites) }
     }
 

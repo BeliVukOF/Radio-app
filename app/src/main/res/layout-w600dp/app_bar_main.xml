@@ -7,10 +7,18 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <include
+        android:id="@+id/content_main"
+        layout="@layout/content_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:elevation="8dp"
         android:theme="@style/Theme.RadioAPP.AppBarOverlay">
 
         <androidx.appcompat.widget.Toolbar
@@ -18,15 +26,11 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
+            android:paddingStart="20dp"
+            android:paddingEnd="8dp"
             app:popupTheme="@style/Theme.RadioAPP.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
-
-    <include
-        android:id="@+id/content_main"
-        layout="@layout/content_main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/miniPlayer"
@@ -36,7 +40,7 @@
         android:layout_margin="8dp"
         android:visibility="gone"
         app:cardCornerRadius="8dp"
-        app:cardElevation="8dp"
+        app:cardElevation="12dp"
         tools:visibility="visible">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -82,7 +86,6 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@string/content_description_play"
                 android:scaleType="fitCenter"
                 android:src="@android:drawable/ic_media_play"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -94,7 +97,6 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@string/content_description_stop"
                 android:scaleType="fitCenter"
                 android:src="@android:drawable/ic_menu_close_clear_cancel"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -103,5 +105,4 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

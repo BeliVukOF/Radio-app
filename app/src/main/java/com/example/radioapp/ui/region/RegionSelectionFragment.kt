@@ -71,9 +71,6 @@ class RegionSelectionFragment : Fragment() {
         binding.buttonAll.setOnClickListener {
             navigateToRadio(null)
         }
-        binding.buttonSettings.setOnClickListener {
-            findNavController().navigate(R.id.nav_settings)
-        }
     }
 
     private fun navigateToRadio(region: String?) {

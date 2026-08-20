@@ -10,6 +10,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.animation.LinearInterpolator
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
 import androidx.media3.common.MediaItem
 import androidx.media3.common.Player
 import androidx.media3.session.MediaController
@@ -49,14 +50,28 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         val navController = navHostFragment.navController
 
         // Only Region Selection is top-level. Others will have a back button.
-        appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.nav_region_selection),
-            binding.drawerLayout
-        )
+        appBarConfiguration = if (binding.drawerLayout != null) {
+            AppBarConfiguration(
+                setOf(R.id.nav_region_selection),
+                binding.drawerLayout
+            )
+        } else {
+            AppBarConfiguration(setOf(R.id.nav_region_selection))
+        }
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         binding.navView?.setupWithNavController(navController)
-        
+
+        // Manual drawer toggle logic for better accessibility and Honor device compatibility
+        binding.appBarMain.toolbar.setNavigationOnClickListener {
+            val isTopLevel = appBarConfiguration.topLevelDestinations.contains(navController.currentDestination?.id)
+            if (isTopLevel && binding.drawerLayout != null) {
+                binding.drawerLayout?.openDrawer(androidx.core.view.GravityCompat.START)
+            } else {
+                navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+            }
+        }
+
         setupMediaController()
         
         binding.appBarMain.buttonMiniPlayerPlayPause.setOnClickListener {
@@ -151,8 +166,11 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
     }
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
-        if (key == "power_saving") {
-            updateMiniPlayer()
+        if (::binding.isInitialized) {
+            updateNavMenu()
+            if (key == "power_saving") {
+                updateMiniPlayer()
+            }
         }
     }
 

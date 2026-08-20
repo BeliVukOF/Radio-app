@@ -58,12 +58,13 @@ class PlaybackService : MediaSessionService(), SharedPreferences.OnSharedPrefere
         exoPlayer = ExoPlayer.Builder(this)
             .setMediaSourceFactory(mediaSourceFactory)
             .setLoadControl(loadControl)
+            .setHandleAudioBecomingNoisy(true) // Pauzira ako izvuces slusalice
             .setAudioAttributes(
                 AudioAttributes.Builder()
                     .setContentType(C.AUDIO_CONTENT_TYPE_MUSIC)
                     .setUsage(C.USAGE_MEDIA)
                     .build(),
-                true
+                true // Automatski hendluje dolazne pozive (Audio Focus)
             )
             .build()
             
