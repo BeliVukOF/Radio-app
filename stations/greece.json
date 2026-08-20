@@ -2,5 +2,6 @@
   { "name": "Plus Radio", "streamUrl": "https://eco.onestreaming.com/proxy/plusradio/stream", "region": "Greece" },
   { "name": "RadioBoss", "streamUrl": "http://168.119.74.185:8150/live", "region": "Greece" },
   { "name": "Trelown", "streamUrl": "http://i2.streams.ovh:7109/stream", "region": "Greece" },
-  { "name": "Kiss FM", "streamUrl": "https://kissfm.live24.gr/kissfmathens", "region": "Greece" }
+  { "name": "Kiss FM", "streamUrl": "https://kissfm.live24.gr/kissfmathens", "region": "Greece" },
+  { "name": "Radio IN", "streamUrl": "https://rdst.win:48383/stream", "region": "Greece" }
 ]
