@@ -4,5 +4,6 @@
   { "name": "Trelown", "streamUrl": "http://i2.streams.ovh:7109/stream", "region": "Greece" },
   { "name": "Kiss FM", "streamUrl": "https://kissfm.live24.gr/kissfmathens", "region": "Greece" },
   { "name": "Radio IN", "streamUrl": "https://rdst.win:48383/stream", "region": "Greece" },
-  { "name": "Art FM", "streamUrl": "https://radio.webmonster.gr:8030/artfm906hi", "region": "Greece" }
+  { "name": "Art FM", "streamUrl": "https://radio.webmonster.gr:8030/artfm906hi", "region": "Greece" },
+  { "name": "Rythmos", "streamUrl": "https://rythmos.live24.gr/rythmos", "region": "Greece" }
 ]
