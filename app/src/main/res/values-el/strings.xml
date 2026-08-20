@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">Balkan Radio</string>
+    <string name="navigation_drawer_open">Άνοιγμα μενού</string>
+    <string name="navigation_drawer_close">Κλείσιμο μενού</string>
+    <string name="nav_header_title">Balkan Radio</string>
+    <string name="nav_header_subtitle">Ραδιοφωνικοί Σταθμοί Ex-Yu</string>
+    <string name="nav_header_desc">Κεφαλίδα μενού</string>
+    <string name="action_settings">Ρυθμίσεις</string>
+
+    <string name="menu_all_regions">Όλες οι περιοχές</string>
+    <string name="menu_favorites">Αγαπημένα</string>
+    <string name="menu_albania">Αλβανία</string>
+    <string name="menu_bosnia">Βοσνία-Ερζεγοβίνη</string>
+    <string name="menu_bulgaria">Βουλγαρία</string>
+    <string name="menu_croatia">Κροατία</string>
+    <string name="menu_greece">Ελλάδα</string>
+    <string name="menu_macedonia">Μακεδονία</string>
+    <string name="menu_montenegro">Μαυροβούνιο</string>
+    <string name="menu_serbia">Σερβία</string>
+    <string name="menu_settings">Ρυθμίσεις</string>
+
+    <string name="now_playing_default">Δεν αναπαράγεται τίποτα</string>
+    <string name="content_description_play">Αναπαραγωγή</string>
+    <string name="content_description_pause">Παύση</string>
+    <string name="content_description_stop">Διακοπή</string>
+    <string name="content_description_back">Πίσω</string>
+
+    <string name="title_settings">Ρυθμίσεις</string>
+    <string name="title_enabled_regions">Ενεργοποιημένες περιοχές</string>
+    <string name="title_performance">Απόδοση</string>
+    <string name="label_power_saving">Εξοικονόμηση μπαταρίας</string>
+    <string name="desc_power_saving">Μειώνει τα γραφικά και βελτιστοποιεί τη ροή για μεγαλύτερη διάρκεια μπαταρίας.</string>
+    <string name="title_language">Γλώσσα</string>
+    <string name="label_select_language">Επιλογή γλώσσας εφαρμογής</string>
+    <string name="lang_albanian">Αλβανικά</string>
+    <string name="lang_bosnian">Βοσνιακά</string>
+    <string name="lang_bulgarian">Βουλγαρικά</string>
+    <string name="lang_croatian">Κροατικά</string>
+    <string name="lang_greek">Ελληνικά</string>
+    <string name="lang_macedonian">Μακεδονικά</string>
+    <string name="lang_montenegrin">Μαυροβουνιακά</string>
+    <string name="lang_serbian">Σερβικά</string>
+    <string name="lang_english">Αγγλικά</string>
+    <string name="title_choose_region">Επιλέξτε περιοχή</string>
+    <string name="label_albania">Αλβανία</string>
+    <string name="label_bosnia">Βοσνία</string>
+    <string name="label_bulgaria">Βουλγαρία</string>
+    <string name="label_croatia">Κροατία</string>
+    <string name="label_greece">Ελλάδα</string>
+    <string name="label_macedonia">Μακεδονία</string>
+    <string name="label_montenegro">Μαυροβούνιο</string>
+    <string name="label_serbia">Σερβία</string>
+    <string name="label_all_regions">Όλες οι περιοχές</string>
+</resources>
